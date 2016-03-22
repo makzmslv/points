@@ -34,6 +34,9 @@ public class PlayerEntity
     @Column(name = "ROLE")
     private Integer role;
 
+    @Column(name = "TOTAL_POINTS")
+    private Integer totalPoints;
+
     public Integer getId()
     {
         return id;
@@ -102,6 +105,16 @@ public class PlayerEntity
     public void setRole(Integer role)
     {
         this.role = role;
+    }
+
+    public Integer getTotalPoints()
+    {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(Integer totalPoints)
+    {
+        this.totalPoints = totalPoints;
     }
 
     @Override

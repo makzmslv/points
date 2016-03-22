@@ -29,6 +29,9 @@
             <column name="ROLE" type="INTEGER">
                 <constraints nullable="true"/>
             </column>
+            <column name="TOTAL_POINTS" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
     </changeSet>
 
@@ -58,7 +61,7 @@
         <insert tableName="PLAYER">
             <column name="NAME" value="shantam"/>
         </insert>
-	<insert tableName="PLAYER">
+    <insert tableName="PLAYER">
             <column name="NAME" value="pratik"/>
         </insert>
     </changeSet>

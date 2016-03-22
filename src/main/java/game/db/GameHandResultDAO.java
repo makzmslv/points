@@ -10,6 +10,8 @@ public interface GameHandResultDAO extends JpaRepository<GameHandResultEntity, I
 {
     public List<GameHandResultEntity> findByPlayerEntity(PlayerEntity player);
 
-    @Query(value = "SELECT gameHandResult.playerEntity FROM GameHandResultEntity gameHandResult WHERE gameHandResult.gameEntity = :game")
+    public List<GameHandResultEntity> findByGameEntity(GameEntity game);
+
+    @Query(value = "SELECT DISTINCT gameHandResult.playerEntity FROM GameHandResultEntity gameHandResult WHERE gameHandResult.gameEntity = :game")
     public List<PlayerEntity> getPlayersInGame(@Param("game") GameEntity game);
 }

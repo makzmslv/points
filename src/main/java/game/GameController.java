@@ -39,4 +39,11 @@ public class GameController
     {
         return gameService.doTotal(gameId);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<RoundDetailsDTO> getRoundsDetails(@RequestBody Integer gameId)
+    {
+        return gameService.getRounds(gameId);
+    }
 }

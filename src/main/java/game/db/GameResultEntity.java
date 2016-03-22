@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "RESULT_GAME")
+@Table(name = "GAME_RESULT")
 public class GameResultEntity
 {
     @Id

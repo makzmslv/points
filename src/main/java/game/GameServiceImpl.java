@@ -64,6 +64,13 @@ public class GameServiceImpl
         return mapListOfEnitiesToDTOs(gameHandResults, RoundDetailsDTO.class);
     }
 
+    public List<RoundDetailsDTO> getRounds(Integer gameId)
+    {
+        GameEntity game = gameDAO.findOne(gameId);
+        List<GameHandResultEntity> gameHandResults = gameHandResultDAO.findByGameEntity(game);
+        return mapListOfEnitiesToDTOs(gameHandResults, RoundDetailsDTO.class);
+    }
+
     public List<GameResultDTO> doTotal(Integer gameId)
     {
         GameEntity game = gameDAO.findOne(gameId);
@@ -82,9 +89,11 @@ public class GameServiceImpl
             gameResultEntity.setGameEntity(game);
             gameResultEntity.setPlayerCurrentGameInstanceEntity(player);
             gameResultEntity.setPoints(totalPoints);
-            gameResultDAO.save(gameResultEntity);
             gameResults.add(gameResultEntity);
             points.add(totalPoints);
+            Integer playerCurrentTotalPoints = player.getTotalPoints() == null ? 0 : player.getTotalPoints();
+            player.setTotalPoints(playerCurrentTotalPoints + totalPoints);
+            playerDAO.save(player);
         }
         setPositionsOfPlayers(gameResults, points);
         gameResults = gameResultDAO.save(gameResults);

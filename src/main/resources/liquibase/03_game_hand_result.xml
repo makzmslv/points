@@ -7,9 +7,9 @@
         <!--                                 -->
         <!-- RESULT_HAND -->
         <!--                                 -->
-        <createTable tableName="GAME_HAND" remarks="GAME_HAND">
+        <createTable tableName="GAME_HAND_RESULT" remarks="GAME_HAND_RESULT">
             <column name="ID" type="INTEGER" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="GAME_HAND_PK" nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="GAME_HAND_RESULT_PK" nullable="false"/>
             </column>
             <column name="REF_GAME" type="INTEGER">
                 <constraints nullable="false"/>
@@ -21,6 +21,6 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint constraintName="FK_GAME_HAND_REF_PLAYER" baseTableName="GAME_HAND" baseColumnNames="REF_PLAYER" referencedTableName="PLAYER" referencedColumnNames="ID"/>
+        <addForeignKeyConstraint constraintName="FK_GAME_HAND_REF_PLAYER" baseTableName="GAME_HAND_RESULT" baseColumnNames="REF_PLAYER" referencedTableName="PLAYER" referencedColumnNames="ID"/>
     </changeSet>
 </databaseChangeLog>
