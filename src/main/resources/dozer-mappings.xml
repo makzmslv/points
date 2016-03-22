@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <mapping>
+        <class-a>game.db.GameHandResultEntity</class-a>
+        <class-b>game.dto.RoundDetailsDTO</class-b>
+
+        <field>
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>gameEntity.id</a>
+            <b>gameId</b>
+        </field>
+        <field>
+            <a>playerEntity.id</a>
+            <b>playerId</b>
+        </field>
+        <field>
+            <a>points</a>
+            <b>points</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>game.db.GameResultEntity</class-a>
+        <class-b>game.dto.GameResultDTO</class-b>
+
+        <field>
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>gameEntity.id</a>
+            <b>gameId</b>
+        </field>
+        <field>
+            <a>points</a>
+            <b>points</b>
+        </field>
+        <field>
+            <a>position</a>
+            <b>position</b>
+        </field>
+        <field>
+            <a>playerEntity.id</a>
+            <b>playerId</b>
+        </field>
+        <field>
+            <a>playerEntity.name</a>
+            <b>playerName</b>
+        </field>
+    </mapping>
+</mappings>

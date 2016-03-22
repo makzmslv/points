@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: Game Points
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/points
+    username: root
+    password: neptune
+
+liquibase:
+  enabled: true
+  change-log: classpath:/liquibase/master.xml
+
+swagger:
+  documentation:
+    version: 1
+
+error:
+  path: /mvc-error
+
+management:
+  context-path: /actuator
+
+endpoints:
+  shutdown:
+    enabled: true
+
+server:
+  port: 8080

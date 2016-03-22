@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="mk" id="1">
+        <!--                                 -->
+        <!-- PLAYER -->
+        <!--                                 -->
+        <createTable tableName="PLAYER" remarks="PLAYER">
+            <column name="ID" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="PLAYER_PK" nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="EMAIL" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="PASSWORD" type="VARCHAR(500)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="VERIFIED" type="BOOLEAN">
+                <constraints nullable="true"/>
+            </column>
+            <column name="ROLE" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mk" id="2">
+        <insert tableName="PLAYER">
+            <column name="NAME" value="Makarandh"/>
+            <column name="EMAIL" value="makzmslv@gmail.com"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="vinay"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="aditya"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="mudit"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="sagnik"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="amey"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="golu"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="shantam"/>
+        </insert>
+	<insert tableName="PLAYER">
+            <column name="NAME" value="pratik"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
