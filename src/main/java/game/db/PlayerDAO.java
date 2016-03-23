@@ -8,6 +8,6 @@ public interface PlayerDAO extends JpaRepository<PlayerEntity, Integer>
 
     public PlayerEntity findByUsername(String username);
 
-    public PlayerEntity findByEmail(String email);
+    public PlayerEntity findByName(String name);
 
 }

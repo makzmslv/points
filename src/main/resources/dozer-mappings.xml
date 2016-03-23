@@ -19,6 +19,10 @@
             <b>playerId</b>
         </field>
         <field>
+            <a>playerEntity.name</a>
+            <b>playerName</b>
+        </field>
+        <field>
             <a>points</a>
             <b>points</b>
         </field>

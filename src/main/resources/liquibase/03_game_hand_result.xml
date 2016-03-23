@@ -20,6 +20,7 @@
             <column name="POINTS" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
+
         </createTable>
         <addForeignKeyConstraint constraintName="FK_GAME_HAND_REF_PLAYER" baseTableName="GAME_HAND_RESULT" baseColumnNames="REF_PLAYER" referencedTableName="PLAYER" referencedColumnNames="ID"/>
     </changeSet>

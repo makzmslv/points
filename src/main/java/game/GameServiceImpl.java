@@ -47,13 +47,13 @@ public class GameServiceImpl
         return gameDTO;
     }
 
-    public List<RoundDetailsDTO> addPoints(List<RoundDetailsDTO> roundDetails)
+    public List<RoundDetailsDTO> addRoundPoints(List<RoundDetailsDTO> roundDetails)
     {
         GameEntity game = gameDAO.findOne(roundDetails.get(0).getGameId());
         List<GameHandResultEntity> gameHandResults = new ArrayList<GameHandResultEntity>();
         for (RoundDetailsDTO round : roundDetails)
         {
-            PlayerEntity player = playerDAO.findOne(round.getPlayerId());
+            PlayerEntity player = playerDAO.findByName(round.getPlayerName());
             GameHandResultEntity gameHandResultEntity = new GameHandResultEntity();
             gameHandResultEntity.setGameEntity(game);
             gameHandResultEntity.setPlayerEntity(player);
@@ -69,6 +69,13 @@ public class GameServiceImpl
         GameEntity game = gameDAO.findOne(gameId);
         List<GameHandResultEntity> gameHandResults = gameHandResultDAO.findByGameEntity(game);
         return mapListOfEnitiesToDTOs(gameHandResults, RoundDetailsDTO.class);
+    }
+
+    public List<GameResultDTO> getResults(Integer gameId)
+    {
+        GameEntity game = gameDAO.findOne(gameId);
+        List<GameResultEntity> gameResults = gameResultDAO.findByGameEntityOrderByPositionAsc(game);
+        return mapListOfEnitiesToDTOs(gameResults, GameResultDTO.class);
     }
 
     public List<GameResultDTO> doTotal(Integer gameId)

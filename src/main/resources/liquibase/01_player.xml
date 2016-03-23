@@ -37,32 +37,49 @@
 
     <changeSet author="mk" id="2">
         <insert tableName="PLAYER">
-            <column name="NAME" value="Makarandh"/>
+            <column name="ID" value="1"/>
+            <column name="NAME" value="mk3"/>
             <column name="EMAIL" value="makzmslv@gmail.com"/>
         </insert>
         <insert tableName="PLAYER">
             <column name="NAME" value="vinay"/>
+            <column name="ID" value="2"/>
         </insert>
         <insert tableName="PLAYER">
             <column name="NAME" value="aditya"/>
+            <column name="ID" value="3"/>
         </insert>
         <insert tableName="PLAYER">
             <column name="NAME" value="mudit"/>
+            <column name="ID" value="4"/>
         </insert>
         <insert tableName="PLAYER">
-            <column name="NAME" value="sagnik"/>
+            <column name="ID" value="5"/>
+            <column name="NAME" value="saggu"/>
         </insert>
         <insert tableName="PLAYER">
             <column name="NAME" value="amey"/>
+            <column name="ID" value="6"/>
         </insert>
         <insert tableName="PLAYER">
             <column name="NAME" value="golu"/>
+            <column name="ID" value="7"/>
         </insert>
         <insert tableName="PLAYER">
             <column name="NAME" value="shantam"/>
+            <column name="ID" value="8"/>
         </insert>
-    <insert tableName="PLAYER">
+        <insert tableName="PLAYER">
             <column name="NAME" value="pratik"/>
+            <column name="ID" value="9"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="sujeet"/>
+            <column name="ID" value="10"/>
+        </insert>
+        <insert tableName="PLAYER">
+            <column name="NAME" value="new"/>
+            <column name="ID" value="11"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

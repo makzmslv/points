@@ -10,6 +10,8 @@ public class RoundDetailsDTO
 
     private Integer gameId;
 
+    private String playerName;
+
     public Integer getId()
     {
         return id;
@@ -48,5 +50,15 @@ public class RoundDetailsDTO
     public void setGameId(Integer gameId)
     {
         this.gameId = gameId;
+    }
+
+    public String getPlayerName()
+    {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName)
+    {
+        this.playerName = playerName;
     }
 }

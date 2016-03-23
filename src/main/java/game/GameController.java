@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,22 +29,31 @@ public class GameController
 
     @RequestMapping(value = "/round", method = RequestMethod.POST)
     @ResponseBody
-    public List<RoundDetailsDTO> addRoundPoints(@RequestBody List<RoundDetailsDTO> roundDetails)
+    public void addRoundPoints(@RequestBody List<RoundDetailsDTO> roundDetails)
     {
-        return gameService.addPoints(roundDetails);
+        gameService.addRoundPoints(roundDetails);
+        return;
     }
 
     @RequestMapping(value = "/total", method = RequestMethod.POST)
     @ResponseBody
-    public List<GameResultDTO> totalPoints(@RequestBody Integer gameId)
+    public void totalPoints(@RequestBody Integer gameId)
     {
-        return gameService.doTotal(gameId);
+        gameService.doTotal(gameId);
+        return;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/game/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public List<RoundDetailsDTO> getRoundsDetails(@RequestBody Integer gameId)
+    public List<RoundDetailsDTO> getRoundsDetails(@PathVariable Integer id)
     {
-        return gameService.getRounds(gameId);
+        return gameService.getRounds(id);
+    }
+
+    @RequestMapping(value = "/result/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<GameResultDTO> getResults(@PathVariable Integer id)
+    {
+        return gameService.getResults(id);
     }
 }

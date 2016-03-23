@@ -1,6 +1,121 @@
 <!doctype html>
-<html lang="en" >
-<body>
-GAME POINTS
+<html lang="en" ng-app="points">
+<head>
+<title>Points</title>
+<link rel="stylesheet" href="bootstrap/app.css"  />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+
+</head>
+<body >
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.js"></script>
+    <script src="js/lib/angular/angular-resource.js"></script>
+    <script src="js/lib/angular/angular-cookies.js"></script>
+    <script src="js/lib/bootstrapui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/lib/moment.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+
+
+
+    <div class="container col-md-18" ng-controller="homeController">
+        <div class="page-header ">
+          <h1>Points Calculator</h1>
+        </div>
+
+        <div class="row" >
+            <h3 style="color:black">Select Players</h3>
+            <form class="form-horizontal" role="form">
+                <label ng-repeat="player in players">
+                  <input
+                    type="checkbox"
+                    name="selectedPlayers[]"
+                    value="{{player.name}}"
+                    ng-model="player.selected"
+                  > {{player.name}}
+                </label>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                    <div class="col-md-18" >
+                        <button class="btn btn-primary" ng-click="createGame()">Start Game</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {{rounds}}
+        <div class="row">
+            <h3 style="color:black">Points Table</h3>
+            <div class="row col-md-18">
+                <table class="table table-bordered table-hover table-condensed thead" style="table-layout: fixed">
+                    <thead>
+                        <tr class="text-center" >
+                            <th class="col-md-3" style="color:black" ng-repeat="player in selection" >{{player}}</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="round in rounds">
+                        <td class="text-center" style="color:black" ng-repeat="r in round">{{r.points}}</td>
+                    </tr>
+                    <tr class="text-center" ng-show="addRow" >
+                        <td ng-repeat="player in selection" class="col-md-3" >
+                            <form class="form-horizontal" role="form" name="pointsForm" >
+                                <input id="name" type="text" class="form-control col-md-3" ng-model="roundpoints[$index]">
+                            </form>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger " ng-click="addPoints()">Add Points</button>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                    <div class="col-md-18">
+                        <button class="btn btn-primary" ng-click="addRoundPoints()">Add round Points</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row" ng-show="gameId">
+            <form class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <div class="col-md-18">
+                        <button class="btn btn-primary" ng-click="doTotal()">Do Total</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row col-md-18" ng-show="showResults">
+            <table class="table" style="table-layout: fixed">
+                <thead>
+                    <tr class="text-center">
+                        <th class="col-md-6" style="color:red">Position</th>
+                        <th class="col-md-6" style="color:red">Player</th>
+                        <th class="col-md-2" style="color:red">Points</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="result in results">
+                    <td class="text-center" style="color:black"><b>{{result.position}}</b></td>
+                    <td class="text-center" style="color:black"><b>{{result.playerName}}</b></td>
+                    <td class="text-center" style="color:black"><b>{{result.points}}</b></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
 </body>
 </html>
