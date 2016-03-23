@@ -25,7 +25,7 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
 
         }
 
-        $scope.selection = $cookies.get('players');
+        $scope.selection = [];
         $scope.rounds = [];
         $scope.addRow = false;
         $scope.showResults = false;
@@ -49,7 +49,6 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
 
         $scope.$watch('players|filter:{selected:true}', function (nv) {
             $scope.selection = nv.map(function (player) {
-                $cookies.put('players',$scope.selection);
               return player.name;
             });
           }, true);
@@ -63,10 +62,12 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
                 var no = 0;
                 for(var i = 0; i <= r; i ++){
                     if($scope.rounds[i] !== undefined) {
-                        no = $scope.rounds[i].length;
+                        no = no + $scope.rounds[i].length;
+                        console.log(no + "no")
                     }
                 }
-                result.splice(0,no)
+                result.splice(0,no);
+                console.log(result.length + "re")
                 $scope.rounds[r] = result;
 
             });

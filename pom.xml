@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mk.game.points</groupId>
   <artifactId>gamepoints</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1</version>
   <name>GamePoints</name>
   <description>Game Point Calculator</description>
 
@@ -80,6 +80,24 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>2.3.2</version>
+                 <configuration>
+                     <source>1.6</source>
+                     <target>1.6</target>
+                     <compilerArgument></compilerArgument>
+                 </configuration>
+             </plugin>
+            <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <version>2.3</version>
+              <configuration>
+                <descriptorRefs>
+                  <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+              </configuration>
             </plugin>
         </plugins>
     </build>
