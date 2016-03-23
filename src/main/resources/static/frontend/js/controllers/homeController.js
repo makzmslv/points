@@ -17,7 +17,7 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
             GameService.createGame(gameDTO).$promise.then(function(result) {
                 $cookies.put('gameId', result.id);
                 $scope.gameId = result.id;
-                $cookies.put('roundNo',0);
+                $cookies.put('roundNo',-1);
                 alert('Game Started')
                 $scope.getRounds();
 
@@ -25,22 +25,22 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
 
         }
 
-        $scope.selection = [];
+        $scope.selection = $cookies.get('players');
         $scope.rounds = [];
         $scope.addRow = false;
         $scope.showResults = false;
 
         $scope.players = [
-                         { name: 'vinay',    selected: false, playerId: 2 },
-                         { name: 'aditya',   selected: false, playerId: 3 },
-                         { name: 'mudit',     selected: false, playerId: 4 },
-                         { name: 'saggu', selected: false, playerId: 5 },
-                         { name: 'amey', selected: false, playerId: 6 },
-                         { name: 'golu', selected: false, playerId: 7 },
-                         { name: 'mk3', selected: false, playerId: 1 },
-                         { name: 'pratik', selected: false, playerId: 9 },
-                         { name: 'shantam', selected: false, playerId: 8 },
-                         { name: 'new', selected: false, playerId: 11 },
+                         { name: 'vinay',    selected: false, playerId: 2, col:1 },
+                         { name: 'aditya',   selected: false, playerId: 3, col:1 },
+                         { name: 'mudit',     selected: false, playerId: 4, col:1 },
+                         { name: 'saggu', selected: false, playerId: 5, col:1 },
+                         { name: 'amey', selected: false, playerId: 6, col:1 },
+                         { name: 'golu', selected: false, playerId: 7, col:2 },
+                         { name: 'mk3', selected: false, playerId: 1, col:2 },
+                         { name: 'pratik', selected: false, playerId: 9, col:2 },
+                         { name: 'shantam', selected: false, playerId: 8, col:2 },
+                         { name: 'new', selected: false, playerId: 11, col:2 },
                        ];
 
         $scope.selectedPlayers = function selectedPlayers() {
@@ -49,6 +49,7 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
 
         $scope.$watch('players|filter:{selected:true}', function (nv) {
             $scope.selection = nv.map(function (player) {
+                $cookies.put('players',$scope.selection);
               return player.name;
             });
           }, true);

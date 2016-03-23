@@ -25,54 +25,65 @@
           <h1>Points Calculator</h1>
         </div>
 
+
         <div class="row" >
             <h3 style="color:black">Select Players</h3>
-            <form class="form-horizontal" role="form">
-                <label ng-repeat="player in players">
-                  <input
-                    type="checkbox"
-                    name="selectedPlayers[]"
-                    value="{{player.name}}"
-                    ng-model="player.selected"
-                  > {{player.name}}
-                </label>
-                <br>
-                <br>
-                <br>
+            <div class="" role="form">
+                <div class="new-select">
+                    <div class="checkboxList">
+                        <div id="teamCheckboxList">
+                            <div ng-repeat="player in players | filter: { col: 2 }">
+                                <label>
+                                    <input class="new-select" type="checkbox" name="selectedPlayers[]" value="{{player.name}}" ng-model="player.selected"> {{player.name}}
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="teamCheckboxList1">
+                            <div ng-repeat="player in players | filter: { col: 1 }">
+                                <label>
+                                    <input class="new-select" type="checkbox" name="selectedPlayers[]" value="{{player.name}}" ng-model="player.selected"> {{player.name}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
                 <div class="form-group">
                     <div class="col-md-18" >
                         <button class="btn btn-primary" ng-click="createGame()">Start Game</button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-        {{rounds}}
         <div class="row">
             <h3 style="color:black">Points Table</h3>
             <div class="row col-md-18">
                 <table class="table table-bordered table-hover table-condensed thead" style="table-layout: fixed">
                     <thead>
                         <tr class="text-center" >
-                            <th class="col-md-3" style="color:black" ng-repeat="player in selection" >{{player}}</th>
+                            <th class="col-md-1" style="color:black" ng-repeat="player in selection" >{{player}}</th>
+                            <th class="col-md-1" style="color:black" ></th>
                         </tr>
                     </thead>
                     <tr ng-repeat="round in rounds">
-                        <td class="text-center" style="color:black" ng-repeat="r in round">{{r.points}}</td>
+                        <td class="text-center col-md-1" style="color:black" ng-repeat="r in round">{{r.points}}</td>
+                        <td></td>
                     </tr>
                     <tr class="text-center" ng-show="addRow" >
                         <td ng-repeat="player in selection" class="col-md-3" >
                             <form class="form-horizontal" role="form" name="pointsForm" >
-                                <input id="name" type="text" class="form-control col-md-3" ng-model="roundpoints[$index]">
+                                <input id="name" type="text" class="form-control col-md-1" style="width:100px" ng-model="roundpoints[$index]">
                             </form>
                         </td>
-                        <td>
+                        <td class="col-md-3">
                             <button class="btn btn-danger " ng-click="addPoints()">Add Points</button>
                         </td>
                     </tr>
                 </table>
-                <br>
-                <br>
-                <br>
+                <br><br><br>
                 <div class="form-group">
                     <div class="col-md-18">
                         <button class="btn btn-primary" ng-click="addRoundPoints()">Add round Points</button>
@@ -80,10 +91,7 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         <div class="row" ng-show="gameId">
             <form class="form-horizontal" role="form">
 
@@ -94,9 +102,7 @@
                 </div>
             </form>
         </div>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         <div class="row col-md-18" ng-show="showResults">
             <table class="table" style="table-layout: fixed">
                 <thead>

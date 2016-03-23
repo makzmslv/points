@@ -5,11 +5,7 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/points
-    username: root
-    password: neptune
+
 
 liquibase:
   enabled: true
