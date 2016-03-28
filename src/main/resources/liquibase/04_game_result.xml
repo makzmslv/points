@@ -21,7 +21,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="POSITION" type="INTEGER">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
         <addForeignKeyConstraint constraintName="FK_GAME_RESULT_REF_PLAYER" baseTableName="GAME_RESULT" baseColumnNames="REF_PLAYER" referencedTableName="PLAYER" referencedColumnNames="ID"/>

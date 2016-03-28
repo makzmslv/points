@@ -106,6 +106,8 @@ var homeController = angular.module('homeController', [ 'ngRoute' ]).controller(
                 GameService.getResults($scope.gameId).$promise.then(function(result) {
                     $scope.results = result;
 
+                }, function(error) {
+                    console.log(error);
                 });
             });
         }

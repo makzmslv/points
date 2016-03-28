@@ -114,7 +114,7 @@ public class GameServiceImpl
         {
             for (GameResultEntity gameResult : gameResults)
             {
-                if (gameResult.getPoints() == points.get(i))
+                if (gameResult.getPoints().equals(points.get(i)))
                 {
                     gameResult.setPosition(i + 1);
                 }
